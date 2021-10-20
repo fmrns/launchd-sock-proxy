@@ -1,0 +1,6 @@
+.*
+*~
+*-abct
+*.dSYM/
+launchd-sock-proxy
+workspace.*

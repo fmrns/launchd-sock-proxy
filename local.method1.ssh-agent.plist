@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.method1.ssh-agent</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/est/bin/launchd-sock-proxy</string>
+		<!-- string>/usr/local/bin/ssh-agent</string -->
+	</array>
+	<key>StandardOutPath</key>
+	<string>/Users/est/tmp/stdout.txt</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/est/tmp/stderr.txt</string>
+	<key>Sockets</key>
+	<dict>
+		<key>Listeners</key>
+		<dict>
+			<key>SecureSocketWithKey</key>
+			<string>SSH_AUTH_SOCK_METHOD1</string>
+		</dict>
+	</dict>
+	<key>EnableTransactions</key>
+	<true/>
+</dict>
+</plist>
