@@ -94,15 +94,15 @@ private:
 
       std::cerr << prefix + ": poll()\n" << std::flush;
       auto status = poll(poll_fd.begin(), poll_fd.size(),
-                         std::chrono::milliseconds(1s).count());
+                         std::chrono::milliseconds(5s).count());
       if (status == -1 || status == 0) {
         if (done_other) {
           break;
         }
         if (status == 0) {
-          std::cerr << prefix + ": poll() timeout.\n" << std::flush;
-          break;
+          continue;
         }
+
         std::cerr << prefix + ": poll(): " + std::strerror(errno) + '\n'
                   << std::flush;
         if ((status & (EAGAIN | EWOULDBLOCK)) != 0) {

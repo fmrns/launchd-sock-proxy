@@ -24,7 +24,9 @@ created by launchd is stable.
 1. Install a C++ compiler with c++20 functionality, and compile lsp.
 
 ```
+sudo chown $(id -u) /usr/local/bin /usr/local/lib /usr/local/Cellar
 brew install gcc@11
+sudo chown 0 /usr/local/bin /usr/local/lib /usr/local/Cellar /usr/local/bin/* /usr/local/lib/* /usr/local/Cellar/*
 g++ -std=c++20 -o launchd-sock-proxy launchd-sock-proxy.c++
 ```
 
@@ -82,6 +84,6 @@ launchctl unload -w ~/Library/LaunchAgent/local.method1.plist
 launchctl   load -w ~/Library/LaunchAgent/local.method1.plist
 ```
 
-Do not forget to disable and remove it when you are done.
+Do not forget to disable StandardErrorPath and remove the output file when you are done.
 
 [^apple-ssh-agent]: for example: [ssh-agent](https://opensource.apple.com/source/OpenSSH/OpenSSH-240.40.1/openssh/ssh-agent.c.auto.html)
